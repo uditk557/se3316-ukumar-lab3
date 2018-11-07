@@ -12,8 +12,10 @@ MongoClient.connect('mongodb://ukumar:Phone6478084879@ds155203.mlab.com:55203/on
     console.log('Test 1');
 
     app.get('/', (req, res) => {
-        res.send('Test 2');
+        res.sendFile('/Users/ukumar/Desktop/se3316-ukumar-lab2-master/se3316-ukumar-lab2-master' + '/lab2.html');
     });
+
+    //app.post('')
 
 
 
