@@ -2,6 +2,50 @@
 
 const express = require('express');
 const app = express();
-const MongoClient = require('mongodb').MongoClient;
+const MongoClient = require('mongodb').MongoClient; var db; // Mongodb variables
+
+MongoClient.connect('mongodb://<ukumar>:<Phone#6478084879>@ds155203.mlab.com:55203/onlinestore' , (err, client) => {
+    if (err) return console.log(err);
+    db = client.db('onlinestore');
+
+    app.listen(557, () => {
+        console.log('test one complete');
+    });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
