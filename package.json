@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/uditk557/se3316-ukumar-lab3#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongodb": "^3.1.9"
   }
 }
