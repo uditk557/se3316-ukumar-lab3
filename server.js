@@ -28,4 +28,17 @@ MongoClient.connect('mongodb://ukumar:Phone6478084879@ds155203.mlab.com:55203/on
 
 
     });
+    app.get('/', (req, res) => {
+        var cursor = db.collection('items').find();
+    });
+
+    app.set('view engine', 'ejs');
+    app.get('/', (req, res) =>{
+        db.collection('items').find().toArray((err, result) => {
+            if (err) return console.log(err);
+
+            res.render('index.ejs', {items: resutl});
+            console.log(results);
+        });
+    });
 });
