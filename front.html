@@ -4,12 +4,26 @@
     <meta charset = "UTF-8">
     </head>
     <body> 
-        <p> Please press the button to show all the available items</p>
-        <form action = "/show" method = "POST">
-        <button type="menu">Show the list</button>
-    
-        </form>
+        <p> Please enter an item,the price, the quantity and the tax rate:</p>
+        <form action="/choice" method = "POST">
+            <input type = "text" placeholder = "name" name="item">
+            <input type = "text" placeholder = "price" name="price">
+            <input type = "text" placeholder = "quantity" name = "quantity">
+            <input type = "number" placeholder = "tax" name = "tax">
+        
+            <button type="submit"> Submit </button>
+            </form>
+        </body>
+        <br>
+        <p>To remove something please type in the name:</p>
+        <form action="/remove" method ="POST">
+            <input type = "text" placeholder = "name" name="item">
 
+       
+    
+    
+    
+    
 
 
 
