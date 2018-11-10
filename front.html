@@ -5,7 +5,7 @@
     </head>
     <body> 
         <p> Please enter an item,the price, the quantity and the tax rate:</p>
-        <form action="/choice" method = "POST">
+        <form action="/items" method = "POST">
             <input type = "text" placeholder = "name" name="item">
             <input type = "text" placeholder = "price" name="price">
             <input type = "text" placeholder = "quantity" name = "quantity">
@@ -19,15 +19,7 @@
         <form action="/remove" method ="POST">
             <input type = "text" placeholder = "name" name="item">
 
-            <ul class = "items">
-                    <% for (var i = 0; i<items.length; i+++) {%>
-                        <li class = "items">
-                            <span><%= items[i].name %></span>
-                            <span><%= items[i].price %></span>
-                            <span><%= items[i].quantity %></span>
-                        </li>
-                        <% } %>
-                </ul>
+           
                 
                 
     

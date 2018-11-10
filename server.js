@@ -1,179 +1,59 @@
-// This is the server for the back end of the shopping website
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var items = require ('./app/models/items');
 
-const express = require('express');
-const app = express();
-const bodyParser = require ('body-parser');
-const MongoClient = require('mongodb').MongoClient; var db; // Mongodb variables
+mongoose.connect('mongodb://ukumar:Phone6478084879@ds155203.mlab.com:55203/onlinestore');
 
 
-app.use(bodyParser.urlencoded({extended:true}));
+
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 557;
+var port = process.env.PORT || 8080;
 
 var router = express.Router();
 
-// this is to send the data 
-router.get('/' ,  (req,res) => {
-    res.json({message: 'hooray! welcome to site'});
+router.use((req, res, next) => {
+    console.log('test 1');
+    next();
+});
+router.get('/', function(req, res) {
+    //res.sendFile('/Users/ukumar/Documents/GitHub/se3316-ukumar-lab3' + '/front.html');
+    res.json({message: 'hooray! welcome to our api!'});
+});
+router.route('/items')
+
+    .post(function(req,res){
+    var item = new items();
+    item.name = req.body.name;
+
+    item.save(function(err) {
+        if(err) {
+        res.setEncoding(err);
+        };
+        res.json({message:'Item stord'});
+    });
 });
 
-app.use('/api' , router);
+router.route('/items')
+
+.get(function(req,res){
+    items.find(function(err, items) {
+        if (err) {
+            res.send(err);
+        };
+        res.json(items);
+    });
+});
+
+
+
+
+
+
+app.use ('/api', router);
 
 app.listen(port);
-console.log ('Conneccted');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*MongoClient.connect('mongodb://ukumar:Phone6478084879@ds155203.mlab.com:55203/onlinestore' , (err, client) => {
-    if (err) return console.log(err);
-    db = client.db('onlinestore');
-
-    app.listen(557);
-    console.log('Test 1');
-    app.use(bodyParser.urlencoded({extended: true}));
-    app.get('/', (req, res) => {
-        res.sendFile('/Users/ukumar/Documents/GitHub/se3316-ukumar-lab3' + '/lab2.html');
-    });
-
-    app.post('/choice' , (req,res) => {
-        db.collection('items').insertOne(req.body) });
-        console.log('Saved');
-
-    app.post('/choice' , (req,res) => {
-       db.collection('items').save(req.body, (err, results)=> {
-        if (err) return console.log(err);
-        
-        console.log('saved');
-        res.send(req.body);
-        console.log(req.body);
-        res.redirect('/');
-    });
-
-
-    
-    app.get('/', (req, res) => {
-        var cursor = db.collection('items').find();
-        console.log(res.body);
-    });
-    app.get('/', (req,res) =>{
-        db.collection.find().forEach(printjson);
-    });
-
-    app.set('view engine', 'ejs');
-    app.get('/', (req, res) =>{
-        db.collection('items').find().toArray((err, result) => {
-            if (err) return console.log(err);
-
-            res.render('index.ejs', {items: resutl});
-            console.log(results);
-        });
-    });
-
-    app.get('/remove', (req,res) => {
-        db.collection.delete
-   });
-
-
-
-});*/
+console.log('Magic happens on port ' + port);
