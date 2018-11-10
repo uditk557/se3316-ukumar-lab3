@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Test for Lab 3</title>
@@ -5,20 +6,34 @@
     </head>
     <body> 
         <p> Please enter an item,the price, the quantity and the tax rate:</p>
-        <form action="/items" method = "POST">
-            <input type = "text" placeholder = "name" name="item">
-            <input type = "text" placeholder = "price" name="price">
-            <input type = "text" placeholder = "quantity" name = "quantity">
-            <input type = "number" placeholder = "tax" name = "tax">
+        <form action="/items" method = "post">
+            <input type = "text" placeholder = "Enter item name" name="item" >
+            <input type = "text" placeholder = "Enter the price" name="price" >
+            <input type = "text" placeholder = "Enter the quantity" name = "quantity" >
+            <input type = "text" placeholder = "Enter tax" name = "tax">
         
             <button type="submit"> Submit </button>
             </form>
+        <p>Enter the item name whose quantity needs to be updated:</p>
+        <form action="/items/update" method = "put">
+        <input type = "text" placeholder = "Enter the item name" name ="item">
+        <input type = "text" placeholder = "Enter the new quantity" name = "quantity">
+        <button type="submit"> Submit </button>
+        </form>
+
+        <p>Enter an item to delete:</p>
+        <form action="/item/delete" method = "delete">
+            
+
+
+
+
+
+
+
         </body>
         <br>
-        <p>To remove something please type in the name:</p>
-        <form action="/remove" method ="POST">
-            <input type = "text" placeholder = "name" name="item">
-
+        
            
                 
                 
@@ -29,5 +44,5 @@
 
 
 
-        </body>
+ 
 </html>
