@@ -28,10 +28,30 @@ app.post("/items", (req, res)=>{
         res.redirect('/');
     }) ;
 });
-
-app.put("/items/update", (req,res) =>{
+app.get("/items/update" , function(req,res){
+    console.log("update");
+});
+app.put("/items/update", function(req,res){
     items.findOneAndUpdate({
         item: req.body.item
     },{$set: {quantity: req.body.title}});
     });
 
+    app.delete("/item/delete", function(req,res) {
+        items.findOneAndRemove({
+            item: req.body.item
+        }
+        ,function(err, items) {
+            if (err) {
+                res.send("Error Deleting");
+            } else {
+                console.log("deleted");
+            }
+        })
+    });
+    app.get("/items/show" , function(req,res){
+        console.log("show");
+    });
+    app.post("/items/show", (req,res) =>{
+        res.send(items);
+    });
