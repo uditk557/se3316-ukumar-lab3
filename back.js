@@ -53,5 +53,5 @@ app.put("/items/update", function(req,res){
         console.log("show");
     });
     app.post("/items/show", (req,res) =>{
-        res.send(items);
+        res.json(items);
     });
