@@ -32,13 +32,15 @@ app.post("/items", (req, res)=>{
         res.redirect('/');
     }) ;
 });
-app.get("/items/update" , function(req,res){
+/*app.get("/items/update" , function(req,res){
     console.log("update");
-});
-app.put("/items/update", function(req,res){
+
+});*/
+app.get("/items/update", function(req,res){
     items.findOneAndUpdate({
         item: req.body.item
     },{$set: {quantity: req.body.title}});
+        console.log("updated");
     });
 
     app.get("/item/delete", function(req,res) {
