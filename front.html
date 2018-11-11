@@ -22,13 +22,13 @@
         </form>
 
         <p>Enter an item to delete:</p>
-        <form action="/item/delete" method = "delete">
+        <form action="/item/delete" method = "get">
             <input type = "text" placeholder = "Enter an item to delete" name = "item">
             <button type="submit"> Submit </button>
             </form>
 
             <p>Click to show whats on the database</p>
-            <form action= "/items/show" method = "post">
+            <form action= "/items/show" method = "get">
                 <button type="submit"> Show </button>
             </form>
 
